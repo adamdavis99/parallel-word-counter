@@ -54,5 +54,15 @@ func main() {
     }
 
     fmt.Printf("Total word count: %d\n", totalWords)
-	fmt.Printf("Time taken: %s\n", time.Since(start))
+	fmt.Printf("Time taken in parallel: %s\n", time.Since(start))
+
+
+	start2 := time.Now()
+	totalWords = 0
+	for _, s := range lines {
+		totalWords += countWords(s)
+	}
+
+	fmt.Printf("Total word count: %d\n", totalWords)
+	fmt.Printf("Time taken in sequential: %s\n", time.Since(start2))
 }
